@@ -18,8 +18,8 @@ namespace P4_LAB3
                 RegionDescription = "polska"
             };
 
-
-            var joinResult = conn.Query<Territories, Region, Territories>("SELECT * FROM Territories t JOIN Region r ON t.RegionID = r.RegionID WHERE TerritoryDescription LIKE 'B%'",
+            var firstL = "B";
+            var joinResult = conn.Query<Territories, Region, Territories>($"SELECT * FROM Territories t JOIN Region r ON t.RegionID = r.RegionID WHERE TerritoryDescription LIKE '{firstL}%'",
                 (territories, region) =>
                 {
                     territories.Region = region;
